@@ -43,10 +43,10 @@ def removeEmoticon(corpus):
 
 def getTweetData(filename="dataset/Indonesian_Tweets.tsv"):
     #Gain large corpus of tweets
-    
+    toFeed = []
     rawSentence = []
     with open(filename, 'rU') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter='\\n', quotechar='|')
+        spamreader = csv.reader(csvfile, delimiter='\n', quotechar='|')
         for spam in spamreader:
             rawSentence.append(spam)
     corpusSentence =[]
