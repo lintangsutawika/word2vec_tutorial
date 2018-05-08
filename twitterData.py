@@ -1,4 +1,5 @@
 import re
+import nltk
 
 """docstring for twitterClean"""
 def __init__(self):
@@ -55,7 +56,6 @@ def getTweetData(toFeed, filename="dataset/Indonesian_Tweets.tsv"):
             corpusSentence.append(individualSentence[0])
     
     # corpusSentence = self.text.removeAll(corpusSentence)
-      corpusSentence = text.corpus2BIO(mode=self.mode, corpus=corpusSentence)[0]
     _temp = removeURL(corpusSentence)
     _temp = renameUser(_temp)
     _temp = removeHashtag(_temp)
