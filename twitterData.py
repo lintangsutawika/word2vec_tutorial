@@ -1,4 +1,5 @@
 import re
+import csv
 import nltk
 
 """docstring for twitterClean"""
@@ -40,7 +41,7 @@ def removeEmoticon(corpus):
 
     return _new
 
-def getTweetData(toFeed, filename="dataset/Indonesian_Tweets.tsv"):
+def getTweetData(filename="dataset/Indonesian_Tweets.tsv"):
     #Gain large corpus of tweets
     
     rawSentence = []
