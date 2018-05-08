@@ -1,5 +1,33 @@
 import re
 
+def getTweetData(toFeed, filename="dataset/Indonesian_Tweets.tsv"):
+    #Gain large corpus of tweets
+    
+    rawSentence = []
+    with open(filename, 'rU') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter='\\n', quotechar='|')
+        for spam in spamreader:
+            rawSentence.append(spam)
+    corpusSentence =[]
+    for individualSentence in rawSentence:
+        if individualSentence == []:
+            pass
+        else:
+            corpusSentence.append(individualSentence[0])
+    
+    # corpusSentence = self.text.removeAll(corpusSentence)
+      corpusSentence = text.corpus2BIO(mode=self.mode, corpus=corpusSentence)[0]
+    _temp = removeURL(corpusSentence)
+    _temp = renameUser(_temp)
+    _temp = removeHashtag(_temp)
+    _temp = removeEmoticon(_temp)
+    
+    for sentences in _temp:
+        token = nltk.wordpunct_tokenize(sentences.lower())
+        toFeed.append(token)
+    
+    return toFeed
+
 class twitterClean(object):
     """docstring for twitterClean"""
     def __init__(self):
